@@ -12,11 +12,11 @@ export const ContactForm = ({ onAdd }) => {
     name: Yup.string()
       .min(3, "Too short!")
       .max(50, "Too Long!")
-      .required("required"),
+      .required("Required"),
     number: Yup.string()
       .min(3, "Too short!")
       .max(50, "Too Long!")
-      .required("required"),
+      .required("Required"),
   });
 
   return (
@@ -40,7 +40,7 @@ export const ContactForm = ({ onAdd }) => {
             name="name"
             id={userNameId}
           />
-          <ErrorMessage name="name" component="span" />
+          <ErrorMessage name="name" component="span" style={{ color: "red" }} />
         </div>
         <div className={css.formInput}>
           <label htmlFor={userNumberId}>Number</label>
@@ -50,7 +50,11 @@ export const ContactForm = ({ onAdd }) => {
             name="number"
             id={userNumberId}
           />
-          <ErrorMessage name="number" component="span" />
+          <ErrorMessage
+            name="number"
+            component="span"
+            style={{ color: "red" }}
+          />
         </div>
         <button className={css.button} type="submit">
           Add contact
